@@ -3,12 +3,13 @@ package models;
 import java.time.LocalDate;
 
 public class Author {
+    private static Long lastId = 0L;
     private final Long id;
     private String name;
     private LocalDate dateOfBirth;
 
-    public Author(Long id, String name, LocalDate dateOfBirth){
-        this.id = id;
+    public Author(String name, LocalDate dateOfBirth){
+        this.id = ++lastId;
         this.name = name;
         this.dateOfBirth=dateOfBirth;
     }
