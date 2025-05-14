@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Book {
 
+    private static Long lastId = 0L;
     private final Long id;
     private String title;
     private Author author;
@@ -11,8 +12,8 @@ public class Book {
     private final LocalDate dateCreation;
     private LocalDate dateLastUpdate;
 
-    public Book(Long id, String title, Author author) {
-        this.id = id;
+    public Book(String title, Author author) {
+        this.id = ++lastId;
         this.title = title;
         this.author = author;
         available = true;
