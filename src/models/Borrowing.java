@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Borrowing {
 
     private static Long lastId = 0L;
-    private Long id;
+    private final Long id;
     private Book book;
     private String user;
     private LocalDate dateBorrow;
@@ -17,6 +17,7 @@ public class Borrowing {
         this.user = user;
         dateBorrow = LocalDate.now();
         dateGiveBack = null;
+        book.borrow();
     }
 
     public Long getId() {
@@ -41,6 +42,11 @@ public class Borrowing {
 
     public boolean isActive(){
         return  dateGiveBack==null;
+    }
+
+    public void giveBack(){
+        dateGiveBack = LocalDate.now();
+        book.giveBack();
     }
 
 
