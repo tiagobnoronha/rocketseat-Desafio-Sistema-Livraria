@@ -7,6 +7,7 @@ public class Library {
 
     private final List<Book> books = new ArrayList<>();
     private final List<Author> authors = new ArrayList<>();
+    private final List<Borrowing> borrowings = new ArrayList<>();
 
     public void addBook(Book book){
         books.add(book);
