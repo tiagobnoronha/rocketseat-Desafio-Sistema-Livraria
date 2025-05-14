@@ -20,25 +20,25 @@ public class Library {
     }
 
     public List<Book> getAvailableBooks() {
-        return books.stream().filter((book) -> book.isAvailable()).toList();
+        return books.stream().filter(Book::isAvailable).toList();
     }
 
     public List<Author> getAuthors() {
         return new ArrayList<>(authors);
     }
 
+    public List<Borrowing> getAllBorrowings(){
+        return new ArrayList<>(borrowings);
+    }
+
     public List<Borrowing> getActiveBorrowings() {
-        return borrowings.stream().filter(borrowing -> borrowing.isActive()).toList();
+        return borrowings.stream().filter(Borrowing::isActive).toList();
     }
 
     public void borrow(Book book, String user) throws BookNotAvailableException {
         if (!book.isAvailable()) throw new BookNotAvailableException(book);
 
         borrowings.add(new Borrowing(book, user));
-    }
-
-    public void giveBack(Borrowing borrowing){
-        borrowing.giveBack();
     }
 
 

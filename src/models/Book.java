@@ -20,6 +20,9 @@ public class Book {
         dateCreation = dateLastUpdate = LocalDate.now();
     }
 
+    public String getAuthorName(){
+        return author.getName();
+    }
 
     public Long getId() {
         return id;
