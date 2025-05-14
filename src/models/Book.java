@@ -6,13 +6,15 @@ public class Book {
 
     private final Long id;
     private String title;
+    private Author author;
     private boolean available;
     private final LocalDate dateCreation;
     private LocalDate dateLastUpdate;
 
-    public Book(Long id, String title) {
+    public Book(Long id, String title, Author author) {
         this.id = id;
         this.title = title;
+        this.author = author;
         available = true;
         dateCreation = dateLastUpdate = LocalDate.now();
     }
@@ -24,6 +26,10 @@ public class Book {
 
     public String getTitle() {
         return title;
+    }
+
+    public Author getAuthor() {
+        return author;
     }
 
     public boolean isAvailable() {
@@ -40,6 +46,11 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
+        refreshDateLastUpdate();
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
         refreshDateLastUpdate();
     }
 
